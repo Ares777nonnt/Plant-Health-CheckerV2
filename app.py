@@ -97,9 +97,18 @@ h1, h2, h3, h4 {
 }
 
 /* ===== TABS ===== */
+/* ===== TABS: make them bigger and clearer ===== */
 .stTabs [data-baseweb="tab"] {
-  color: #9fbfba;
-  font-weight: 500;
+  font-size: 1.05rem;          /* testo più grande */
+  font-weight: 600;            /* più “presenza” */
+  padding: 12px 18px;          /* area cliccabile più ampia */
+}
+
+.stTabs [aria-selected="true"] {
+  font-size: 1.1rem;           /* tab attiva leggermente più grande */
+  font-weight: 700;
+}
+
 }
 
 .stTabs [aria-selected="true"] {
