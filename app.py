@@ -25,51 +25,138 @@ st.set_page_config(page_title="Plant Health Checker â€“ Hybrid AI", page_icon="ð
 
 CUSTOM_CSS = """
 <style>
-.stApp { background: linear-gradient(135deg, #001a17 0%, #0a3d35 100%); color: #eafffb; }
-.block-container { padding-top: 2rem; }
-h1,h2,h3,h4 { color: #eafffb; }
-.phc-card {
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid rgba(140, 255, 230, 0.18);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
-}
-.phc-hero {
-  border-radius: 22px;
-  padding: 22px;
-  background: radial-gradient(circle at 15% 20%, rgba(0, 255, 200, 0.12), transparent 45%),
-              radial-gradient(circle at 80% 10%, rgba(0, 200, 255, 0.10), transparent 40%),
-              rgba(0, 0, 0, 0.22);
-  border: 1px solid rgba(140, 255, 230, 0.18);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.20);
-}
-.stButton > button {
-  border: 0; border-radius: 14px; padding: 0.7rem 1.1rem; font-weight: 650;
-  color: #001a17;
-  background: linear-gradient(90deg, #2ef2c8 0%, #00d1ff 100%);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
-}
-.stButton > button:hover { filter: brightness(1.05); transform: translateY(-1px); }
-.stButton > button:active { filter: brightness(0.98); transform: translateY(0px); }
 
-.stTextInput input, .stNumberInput input {
+/* ---------- GLOBAL ---------- */
+.stApp {
+  background-color: #071915;
+  color: #e9fffb;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+.block-container {
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+  max-width: 1200px;
+}
+
+h1, h2, h3, h4 {
+  color: #e9fffb;
+  letter-spacing: 0.2px;
+}
+
+.small-muted {
+  color: #a7d9cf;
+  font-size: 0.9rem;
+}
+
+/* ---------- HERO ---------- */
+.phc-hero {
+  background: linear-gradient(145deg, #0b2620, #071915);
+  border: 1px solid rgba(46, 242, 200, 0.15);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- CARDS ---------- */
+.phc-card {
+  background: #0e2a24;
+  border: 1px solid rgba(46, 242, 200, 0.12);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.30);
+  margin-bottom: 1.2rem;
+}
+
+/* ---------- INPUTS ---------- */
+.stTextInput input,
+.stNumberInput input,
+.stSelectbox select {
+  background: #071915 !important;
+  border: 1px solid rgba(46, 242, 200, 0.22) !important;
   border-radius: 12px !important;
-  background: rgba(0,0,0,0.25) !important;
-  border: 1px solid rgba(140,255,230,0.22) !important;
-  color: #eafffb !important;
+  color: #e9fffb !important;
 }
+
+.stTextInput label,
+.stNumberInput label,
+.stSelectbox label {
+  color: #c7efe6 !important;
+  font-weight: 500;
+}
+
+/* ---------- BUTTONS ---------- */
+.stButton > button {
+  background: linear-gradient(90deg, #2ef2c8, #00d1ff);
+  color: #071915;
+  font-weight: 650;
+  border: none;
+  border-radius: 14px;
+  padding: 0.7rem 1.4rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  transition: all 0.12s ease-in-out;
+}
+
+.stButton > button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.stButton > button:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+
+/* ---------- TABS ---------- */
+.stTabs [data-baseweb="tab"] {
+  font-weight: 600;
+  color: #a7d9cf;
+  background: transparent;
+}
+
+.stTabs [aria-selected="true"] {
+  color: #071915 !important;
+  background: linear-gradient(90deg, #2ef2c8, #00d1ff) !important;
+  border-radius: 12px;
+}
+
+/* ---------- PROGRESS ---------- */
+.stProgress > div > div {
+  background-color: #2ef2c8;
+}
+
+/* ---------- DATAFRAME ---------- */
+[data-testid="stDataFrame"] {
+  background: #0b221d;
+  border-radius: 14px;
+  border: 1px solid rgba(46, 242, 200, 0.15);
+}
+
+/* ---------- FOOTER ---------- */
 .phc-footer {
-  margin-top: 2.2rem; padding: 16px 18px; border-radius: 18px;
-  background: rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(140, 255, 230, 0.18);
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 14px; flex-wrap: wrap;
+  margin-top: 3rem;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: #0b221d;
+  border: 1px solid rgba(46, 242, 200, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.phc-footer a { color: #2ef2c8; text-decoration: none; font-weight: 650; }
-.phc-footer a:hover { text-decoration: underline; }
-.small-muted { opacity: 0.85; font-size: 0.92rem; }
+
+.phc-footer a {
+  color: #2ef2c8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.phc-footer a:hover {
+  text-decoration: underline;
+}
+
 </style>
+
 """
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
