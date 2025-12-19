@@ -26,128 +26,110 @@ st.set_page_config(page_title="Plant Health Checker â€“ Hybrid AI", page_icon="ð
 CUSTOM_CSS = """
 <style>
 
-/* ---------- GLOBAL ---------- */
+/* ===== BASE ===== */
 .stApp {
-  background-color: #071915;
-  color: #e9fffb;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background-color: #0b1412;
+  color: #e6f4f1;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .block-container {
-  padding-top: 2.5rem;
-  padding-bottom: 2rem;
-  max-width: 1200px;
+  max-width: 1100px;
+  padding-top: 2.2rem;
 }
 
+/* ===== TYPO ===== */
 h1, h2, h3, h4 {
-  color: #e9fffb;
-  letter-spacing: 0.2px;
+  color: #e6f4f1;
+  font-weight: 600;
 }
 
 .small-muted {
-  color: #a7d9cf;
+  color: #9fbfba;
   font-size: 0.9rem;
 }
 
-/* ---------- HERO ---------- */
+/* ===== HERO ===== */
 .phc-hero {
-  background: linear-gradient(145deg, #0b2620, #071915);
-  border: 1px solid rgba(46, 242, 200, 0.15);
-  border-radius: 20px;
-  padding: 24px 28px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  background: none;
+  border-bottom: 1px solid #1f2f2b;
+  padding-bottom: 1.4rem;
+  margin-bottom: 2rem;
 }
 
-/* ---------- CARDS ---------- */
+/* ===== CARDS ===== */
 .phc-card {
-  background: #0e2a24;
-  border: 1px solid rgba(46, 242, 200, 0.12);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.30);
-  margin-bottom: 1.2rem;
+  background: #111d1a;
+  border: 1px solid #1f2f2b;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 1.4rem;
 }
 
-/* ---------- INPUTS ---------- */
+/* ===== INPUTS ===== */
 .stTextInput input,
-.stNumberInput input,
-.stSelectbox select {
-  background: #071915 !important;
-  border: 1px solid rgba(46, 242, 200, 0.22) !important;
-  border-radius: 12px !important;
-  color: #e9fffb !important;
+.stNumberInput input {
+  background: #0b1412 !important;
+  border: 1px solid #1f2f2b !important;
+  border-radius: 8px !important;
+  color: #e6f4f1 !important;
 }
 
 .stTextInput label,
-.stNumberInput label,
-.stSelectbox label {
-  color: #c7efe6 !important;
+.stNumberInput label {
+  color: #cfe9e4;
   font-weight: 500;
 }
 
-/* ---------- BUTTONS ---------- */
+/* ===== BUTTONS ===== */
 .stButton > button {
-  background: linear-gradient(90deg, #2ef2c8, #00d1ff);
-  color: #071915;
-  font-weight: 650;
+  background: #2ef2c8;
+  color: #0b1412;
   border: none;
-  border-radius: 14px;
-  padding: 0.7rem 1.4rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-  transition: all 0.12s ease-in-out;
+  border-radius: 8px;
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
 }
 
 .stButton > button:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-}
-
-.stButton > button:active {
-  transform: translateY(0);
   filter: brightness(0.95);
 }
 
-/* ---------- TABS ---------- */
+/* ===== TABS ===== */
 .stTabs [data-baseweb="tab"] {
-  font-weight: 600;
-  color: #a7d9cf;
-  background: transparent;
+  color: #9fbfba;
+  font-weight: 500;
 }
 
 .stTabs [aria-selected="true"] {
-  color: #071915 !important;
-  background: linear-gradient(90deg, #2ef2c8, #00d1ff) !important;
-  border-radius: 12px;
+  color: #e6f4f1 !important;
+  border-bottom: 2px solid #2ef2c8;
 }
 
-/* ---------- PROGRESS ---------- */
+/* ===== PROGRESS ===== */
 .stProgress > div > div {
   background-color: #2ef2c8;
 }
 
-/* ---------- DATAFRAME ---------- */
+/* ===== DATAFRAME ===== */
 [data-testid="stDataFrame"] {
-  background: #0b221d;
-  border-radius: 14px;
-  border: 1px solid rgba(46, 242, 200, 0.15);
+  background: #0b1412;
+  border: 1px solid #1f2f2b;
+  border-radius: 8px;
 }
 
-/* ---------- FOOTER ---------- */
+/* ===== FOOTER ===== */
 .phc-footer {
   margin-top: 3rem;
-  padding: 18px 22px;
-  border-radius: 18px;
-  background: #0b221d;
-  border: 1px solid rgba(46, 242, 200, 0.15);
+  padding-top: 1rem;
+  border-top: 1px solid #1f2f2b;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  color: #9fbfba;
 }
 
 .phc-footer a {
-  color: #2ef2c8;
-  font-weight: 600;
+  color: #9fbfba;
   text-decoration: none;
 }
 
